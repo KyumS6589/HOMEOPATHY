@@ -16,13 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Example data
     const bestsellers = [
-        { name: 'Arnica Montana 30C', image: 'product1.jfif', price: '150' },
-        { name: 'Nux Vomica 200C', image: 'Nux Vomica.jfif', price: '180' },
+        { name: 'Arnica Montana 30C', image: 'product1.bin', price: '150' },
+        { name: 'Nux Vomica 200C', image: 'Nux Vomica.bin', price: '180' },
         // ... more products
     ];
 
     const coldRemedies = [
-        { name: 'Oscillococcinum', image: 'Oscillococcinum.jfif', price: '250' },
+        { name: 'Oscillococcinum', image: 'Oscillococcinum.bin', price: '250' },
         // ... more products
     ];
 
@@ -33,3 +33,4 @@ document.addEventListener('DOMContentLoaded', () => {
     const coldRemedyCarousel = document.querySelectorAll('.product-carousel .carousel-items')[1];
     addProductCards(coldRemedyCarousel, coldRemedies);
 });
+
