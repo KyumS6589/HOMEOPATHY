@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Consult a Doctor</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    
+    /* --------------------
+       Consult Form Styles
+       -------------------- */
+    .consult-container {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .consult-title {
+        font-size: 28px;
+        color: #111;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .consult-subtitle {
+        font-size: 16px;
+        color: #555;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .consult-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+    .form-group label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="number"],
+    .form-group textarea,
+    .form-group select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        font-size: 16px;
+    }
+    .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+    .form-group input[type="file"] {
+        padding: 5px 0;
+    }
+    .submit-button {
+        padding: 12px;
+        background-color: #febd69;
+        border: 1px solid #a88734;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        color: #232f3e;
+        border-radius: 3px;
+        margin-top: 10px;
+        transition: background-color 0.2s;
+    }
+    .submit-button:hover {
+        background-color: #f3a847;
+    }
+    .validation-message {
+        color: red;
+        font-size: 14px;
+        margin-top: 5px;
+        display: none; /* Initially hidden */
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-left">
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Homeopathy Consult">
+        </a>
+    </div>
+
+    <div class="navbar-center">
+        <div class="search-bar-container">
+            <input type="text" class="search-input" placeholder="Search for products, brands, and ailments...">
+            <button class="search-button">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="navbar-right">
+        <div class="nav-item">
+            <a href="login.html" class="nav-link">
+                <i class="fas fa-user-circle"></i>
+                <span>Sign in</span>
+            </a>
+        </div>
+        <div class="nav-item">
+            <a href="cart.html" class="nav-link">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Cart</span>
+            </a>
+            <span class="cart-count">0</span>
+        </div>
+        <div class="nav-item">
+            <a href="consult.html" class="nav-link">
+                <i class="fas fa-stethoscope"></i>
+                <span>Consult Doctor</span>
+            </a>
+        </div>
+    </div>
+  </header>
+
+  <main class="consult-container">
+    <h1 class="consult-title">Consult a Homeopathic Doctor</h1>
+    <p class="consult-subtitle">Fill out the form below to get a personalized consultation. Our doctors will review your details and get back to you.</p>
+    
+    <form class="consult-form" id="consultation-form" action="submit-consultation" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" name="fullName" required>
+            <div class="validation-message" id="name-error">Full name is required.</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+            <div class="validation-message" id="email-error">Please enter a valid email address.</div>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" name="phone" required>
+            <div class="validation-message" id="phone-error">Phone number is required.</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" min="0" required>
+            <div class="validation-message" id="age-error">Age must be a positive number.</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <div class="validation-message" id="gender-error">Please select a gender.</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="symptoms">Describe your symptoms in detail</label>
+            <textarea id="symptoms" name="symptoms" placeholder="Include duration, severity, triggers, and any other relevant information." required></textarea>
+            <div class="validation-message" id="symptoms-error">Please describe your symptoms.</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="medical-history">Previous Medical History & Prescriptions (Optional)</label>
+            <input type="file" id="medical-history" name="medicalHistory" accept=".pdf, .jpg, .jpeg, .png">
+            <p style="font-size: 12px; color: #777;">Accepted file types: PDF, JPG, PNG.</p>
+        </div>
+        
+        <button type="submit" class="submit-button">Submit for Consultation</button>
+    </form>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('consultation-form');
+        
+        form.addEventListener('submit', (e) => {
+            // Prevent the default form submission
+            e.preventDefault();
+
+            // Simple validation check
+            let isValid = true;
+            
+            // Get form elements
+            const fullName = document.getElementById('full-name');
+            const email = document.getElementById('email');
+            const phone = document.getElementById('phone');
+            const age = document.getElementById('age');
+            const gender = document.getElementById('gender');
+            const symptoms = document.getElementById('symptoms');
+
+            // Reset all validation messages
+            document.querySelectorAll('.validation-message').forEach(msg => {
+                msg.style.display = 'none';
+            });
+
+            // Validate Full Name
+            if (fullName.value.trim() === '') {
+                document.getElementById('name-error').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate Email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                document.getElementById('email-error').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate Phone Number (simple check)
+            if (phone.value.trim() === '') {
+                document.getElementById('phone-error').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate Age
+            if (parseInt(age.value) < 0 || age.value === '') {
+                document.getElementById('age-error').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate Gender
+            if (gender.value === '') {
+                document.getElementById('gender-error').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate Symptoms
+            if (symptoms.value.trim() === '') {
+                document.getElementById('symptoms-error').style.display = 'block';
+                isValid = false;
+            }
+
+            if (isValid) {
+                // If the form is valid, you would normally submit it.
+                // For this example, we'll just log the data and show an alert.
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+                console.log('Form data submitted:', data);
+                
+                alert('Your consultation request has been submitted successfully! A doctor will contact you shortly.');
+
+                // Clear the form after a successful submission
+                form.reset();
+
+                // In a real application, you'd use fetch() to send the data to your backend
+                // e.g., fetch('/submit-consultation', { method: 'POST', body: formData });
+            }
+        });
+    });
+  </script>
+</body>
+</html>
