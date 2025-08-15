@@ -1,80 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOMEOPATHIC</title>
-    <link rel="icon" type="image/png" href="logo.png">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="backend.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homeopathy Store – Natural Healing Remedies</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
-<header class="navbar">
-    <div class="navbar-left">
-        <a href="index.html" class="logo">
-            <img src="logo.png" alt="Homeo Cart">
-        </a>
-    </div>
-
-    <div class="navbar-center">
-        <div class="search-bar-container">
-            <input type="text" class="search-input" placeholder="Search for products, brands, and ailments...">
-            <button class="search-button">
-                <i class="fas fa-search"></i>
-            </button>
-        </div>
-    </div>
-
-    <div class="navbar-right">
-        <div class="nav-item">
-            <a href="login.html" class="nav-link">
-                <i class="fas fa-user-circle"></i>
-                <span>Sign in</span>
-            </a>
-        </div>
-        <div class="nav-item">
-            <a href="cart.html" class="nav-link">
-                <i class="fas fa-shopping-cart"></i>
-                <span>Cart</span>
-            </a>
-        </div>
-        <div class="nav-item">
-            <a href="consult.html" class="nav-link">
-                <i class="fas fa-stethoscope"></i>
-                <span>Consult Doctor</span>
-            </a>
-        </div>
-    </div>
-</header>
 <body>
-    <main class="homepage-container">
-    <section class="hero-carousel">
-        <div class="image-box">
-            <a href="product.html" class="logo">
-            <img src="promo.bin" alt="Homeo Cart">
-            </a>
-            </div>
-        </section>
 
-    <section class="product-grid">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Homeopathy Logo" />
+        Homeopathy
+      </a>
+
+      <div class="search-bar-container">
+        <input type="text" class="search-input" placeholder="Search remedies..." />
+        <button class="search-button"><i class="fas fa-search"></i></button>
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="product.html" class="nav-link">Products</a>
+        <a href="consult.html" class="nav-link">Consult</a>
+        <a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i></a>
+        <a href="login.html" class="nav-link">Login</a>
+      </div>
+
+      <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="headline">Natural Healing, Trusted Remedies</h1>
+      <p>Discover a wide range of high-quality homeopathic products for your well-being. 100% natural, safe, and effective remedies for the whole family.</p>
+      <div class="cta-row">
+        <a href="product.html" class="btn">Shop Now</a>
+        <a href="consult.html" class="btn alt">Free Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products Carousel -->
+  <section class="section">
+    <div class="container">
+      <div class="panel">
+        <div class="carousel-header">
+          <h2>Featured Remedies</h2>
+          <a href="product.html" class="nav-link">View All</a>
+        </div>
         <div class="product-carousel">
-            <h3>Bestsellers in Homeopathy</h3>
-            <div class="carousel-items">
-                </div>
+          <div class="carousel-items" id="featured-carousel">
+            <!-- Products injected by backend.js -->
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="product-carousel">
-            <h3>Remedies for Cold & Flu</h3>
-            <div class="carousel-items">
-                </div>
-        </div>
+  <!-- Promo Banner -->
+  <section class="section">
+    <div class="container">
+      <div class="panel" style="padding:1.5rem; text-align:center;">
+        <img src="promo.jfif" alt="Special Offer" style="max-width:100%; border-radius:12px; margin-bottom:1rem;" />
+        <h2>Special Discount – Limited Time</h2>
+        <p class="lead">Get up to 25% off on selected remedies this month. Boost your immunity naturally!</p>
+        <a href="product.html" class="btn">Shop Discounts</a>
+      </div>
+    </div>
+  </section>
 
-        <div class="promo-card">
-            <h3>Find Relief Naturally</h3>
-            <p>Explore our range of remedies for common ailments.</p>
-            <a href="product.html" class="promo-button">Shop Now</a>
-        </div>
-    </section>
-</main>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container cols">
+      <div>
+        <h3>Homeopathy</h3>
+        <p>Natural remedies for a healthier, happier life.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul style="list-style:none; padding:0; margin:0;">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="product.html">Products</a></li>
+          <li><a href="consult.html">Consult</a></li>
+          <li><a href="cart.html">Cart</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>Email: info@homeopathy.com</p>
+        <p>Phone: +1 234 567 890</p>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:1rem;">
+      <small>&copy; 2025 Homeopathy Store. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script src="backend.js"></script>
+  <script>
+    // Mobile menu toggle
+    document.querySelector('.menu-toggle').addEventListener('click', () => {
+      document.querySelector('.navbar').classList.toggle('open');
+    });
+  </script>
 </body>
-                </html>
-
+</html>
