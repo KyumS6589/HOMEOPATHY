@@ -1,24 +1,222 @@
-.login-container {
-    width: 350px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-    text-align: center;
+/* ====== Product Page Styles ====== */
+:root {
+  --primary: #2c7a7b;
+  --primary-dark: #285e61;
+  --secondary: #edf2f7;
+  --text: #2d3748;
+  --bg: #ffffff;
+  --bg-alt: #f7fafc;
+  --radius: 12px;
+  --shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
-.login-form input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #999;
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
 }
 
-.login-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #f0c14b;
-    border: 1px solid #a88734;
-    cursor: pointer;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ===== Navbar (same look as main site) ===== */
+.navbar {
+  background: var(--bg);
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: var(--shadow);
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.navbar .logo img {
+  height: 40px;
+  margin-right: 0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-link {
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius);
+}
+
+.nav-link:hover {
+  background-color: var(--secondary);
+}
+
+.nav-link.active {
+  background-color: var(--primary);
+  color: white;
+}
+
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #cbd5e0;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.search-input {
+  border: none;
+  padding: 0.5rem;
+  outline: none;
+}
+
+.search-button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background: var(--primary-dark);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+}
+
+/* ===== Page Header ===== */
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+
+.hero p {
+  color: #4a5568;
+}
+
+/* ===== Product Grid ===== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  background: var(--bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+  text-align: center;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.product-card-content {
+  padding: 1rem;
+  flex: 1;
+}
+
+.product-card h4 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.product-card p {
+  color: #4a5568;
+  font-size: 0.9rem;
+}
+
+.product-card .price {
+  font-weight: bold;
+  color: var(--primary);
+  margin: 0.5rem 0;
+}
+
+.product-card button {
+  background: var(--primary);
+  border: none;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.product-card button:hover {
+  background: var(--primary-dark);
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: var(--bg-alt);
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+.footer .cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.footer h4 {
+  margin-bottom: 0.5rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: var(--bg);
+    position: absolute;
+    top: 60px;
+    right: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius);
+    padding: 1rem;
+    box-shadow: var(--shadow);
+  }
+
+  .navbar.open .nav-links {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .search-bar-container {
+    display: none;
+  }
 }
